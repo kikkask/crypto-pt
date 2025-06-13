@@ -31,8 +31,11 @@ pip install crypto-pt
 O processo para usar a biblioteca é dividido em quatro passos simples:
 
 Definir Parâmetros: Escolha a mensagem a ser criptografada e o tamanho em bits para as chaves.
+
 Gerar Chaves: Crie o par de chaves pública e privada.
+
 Criptografar: Use a chave pública para cifrar a mensagem.
+
 Descriptografar: Use a chave privada para decifrar a mensagem e recuperar o texto original.
 
 Veja o exemplo em ação:
