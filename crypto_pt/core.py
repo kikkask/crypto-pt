@@ -13,19 +13,27 @@ def gerar_numero_aleatorio(bits):
 
 def miller_rabin(n, k=5):
     """Testa se o número n é primo usando o teste de Miller-Rabin."""
-    if n in (2, 3): return True
-    if n <= 1 or n % 2 == 0: return False
-    r, d = 0, n - 1
-    while d % 2 == 0: d //= 2; r += 1
-    for _ in range(k):
-        a = random.randrange(2, n - 2)
-        x = pow(a, d, n)
-        if x == 1 or x == n - 1: continue
-        for _ in range(r - 1):
-            x = pow(x, 2, n)
-            if x == n - 1: break
-        else: return False
-    return True
+  if n <= 1 or n % 2 == 0:
+    return False
+  k = 5
+  s = 0
+  d = n-1
+  while d % 2 == 0:
+    d = d // 2
+    s += 1
+
+  for repeticao in range(k):
+    a = random.randrange(2, n-1)
+    if pow(a, d, n) == 1 or pow(a, d, n) == n-1:
+      continue
+    for x in range(s-1):
+      r = pow(a, 2, n)
+      if r == n-1:
+        break
+    else:
+      return False
+     
+  return True
 
 def inverso_modular(e, phi):
     """Calcula o inverso modular de e mod phi."""
